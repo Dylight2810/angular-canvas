@@ -8,9 +8,6 @@ html {
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0 !important;
     font-family: -apple-system, BlinkMacSystemFont, Roboto, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -19,4 +16,44 @@ body {
 *, *:after, *:before {
     box-sizing: border-box;
     user-select: none !important;
+}
+
+.text-green {
+    color: forestgreen !important;
+}
+
+.text-blue {
+    color: dodgerblue !important;
+}
+
+.text-red {
+    color: #ff0000 !important;
+}
+
+.text-orange {
+    color: orange !important;
+}
+
+.mr-1 {
+    margin-right: 1rem;
+}
+
+.pointer {
+    cursor: pointer !important
+}
+
+p {
+    margin: 0;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
 }

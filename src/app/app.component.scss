@@ -1,65 +1,37 @@
-.container {
-    width: 1000px;
-    min-height: 100vh;
-    background-color: #ffffff;
+.app-root {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    .omi-canvas {
+    .menu {
+        background-color: #ffffff;
+        position: fixed;
+        top: 50px;
+        left: 50px;
+        border-radius: 5px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.01);
+        padding: 0.75rem;
         display: flex;
         align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        border: 2px solid red;
-        position: relative;
 
-        canvas {
-            border: 2px solid dodgerblue;
+        .menu-item {
+            color: #333333;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 0.75rem;
+            border-bottom: 2px solid #ffffff;
+            transition: border-bottom-color 200ms ease-out, color 200ms ease-out;
         }
 
-        .mouse-coordinate {
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            min-width: 800px;
-            min-height: 200px;
-            border: 2px solid #f1f1f1;
-            border-radius: 5px;
-            display: flex;
+        .menu-item:not(:last-child) {
+            margin-right: 1rem;
+        }
 
-            .x-coordinate, .y-coordinate {
-                width: max-content;
-                padding: 1rem !important;
-            }
-
-            .rect-coordinate {
-                display: flex;
-                padding: 1rem !important;
-            }
-
-            p {
-                margin-top: 0 !important;
-                margin-bottom: 8px !important;
-                font-weight: 600 !important;
-            }
+        .menu-item.activated {
+            border-bottom-color: dodgerblue !important;
+            color: dodgerblue;
         }
     }
-}
-
-.text-green {
-    color: forestgreen !important;
-}
-
-.text-blue {
-    color: dodgerblue !important;
-}
-
-.text-red {
-    color: firebrick !important;
-}
-
-.text-orange {
-    color: orange !important;
-}
-
-.mr-1 {
-    margin-right: 1rem;
 }

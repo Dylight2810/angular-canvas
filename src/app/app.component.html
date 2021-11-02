@@ -1,40 +1,19 @@
-<div class="container">
-    <div class="omi-canvas">
-        <canvas id="OmiCanvas"
-                width="600"
-                height="300"
-                (mousedown)="onCanvasMouseDown($event)"
-                (mouseup)="onCanvasMouseUp($event)"
-                (mousemove)="onCanvasMouseMove($event)"
-                #omiCanvas>
-        </canvas>
-        <div class="mouse-coordinate">
-            <div class="x-coordinate">
-                <p class="text-green">Page X: {{ mouseDown.pageX }}</p>
-                <p class="text-orange">Canvas Offset Left: {{ canvas?.getBoundingClientRect().left }}</p>
-                <p class="text-blue">Rect Start X: {{ rect.x }}</p>
-            </div>
-            <div class="y-coordinate">
-                <p class="text-green">Page Y: {{ mouseDown.pageY }}</p>
-                <p class="text-orange">Canvas Offset Top: {{ canvas?.getBoundingClientRect().top }}</p>
-                <p class="text-blue">Rect Start Y: {{ rect.y }}</p>
-            </div>
+<div class="app-root">
+    <router-outlet></router-outlet>
 
-            <div class="x-coordinate">
-                <p class="text-green">Canvas Offset Left: {{ canvas?.getBoundingClientRect().left }}</p>
-                <p class="text-orange">Canvas Offset Top: {{ canvas?.getBoundingClientRect().top }}</p>
-            </div>
+    <div class="menu">
+        <a [routerLink]="['/draw-canvas']"
+           [class.activated]="selectedMode === 1"
+           (click)="selectedMode = 1"
+           class="menu-item">
+            Draw Canvas
+        </a>
 
-            <div class="rect-coordinate">
-                <div class="mr-1">
-                    <p class="text-green">Rect Start X: {{ rect.x }}</p>
-                    <p class="text-orange">Rect Width: {{ rect.width }}</p>
-                </div>
-                <div>
-                    <p class="text-blue">Rect Start Y: {{ rect.y }}</p>
-                    <p class="text-red">Rect Height: {{ rect.height }}</p>
-                </div>
-            </div>
-        </div>
+        <a [routerLink]="['/draw-without-canvas']"
+           [class.activated]="selectedMode === 2"
+           (click)="selectedMode = 2"
+           class="menu-item">
+            Draw without Canvas
+        </a>
     </div>
 </div>

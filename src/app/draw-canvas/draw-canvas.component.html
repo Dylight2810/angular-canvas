@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="omi-canvas">
+        <div class="mouse-coordinate">
+            <div class="d-flex align-center">
+                <div class="x-coordinate">
+                    <p class="text-green">Page X: {{ mouseDown.pageX }}</p>
+                    <p class="text-orange">Canvas Offset Left: {{ canvas?.getBoundingClientRect().left }}</p>
+                    <p class="text-blue">Rect Start X: {{ rect.x }}</p>
+                </div>
+                <div class="y-coordinate">
+                    <p class="text-green">Page Y: {{ mouseDown.pageY }}</p>
+                    <p class="text-orange">Canvas Offset Top: {{ canvas?.getBoundingClientRect().top }}</p>
+                    <p class="text-blue">Rect Start Y: {{ rect.y }}</p>
+                </div>
+            </div>
+
+            <div class="rect-coordinate">
+                <div class="mr-1">
+                    <p class="text-blue">Mouse Page X: {{ mouse.pageX }}</p>
+                    <p class="text-red">Mouse Page Y: {{ mouse.pageY }}</p>
+                    <p class="text-blue">Mouse Client X: {{ mouse.clientX }}</p>
+                    <p class="text-red">Mouse Client Y: {{ mouse.clientY }}</p>
+                    <p class="text-blue">Mouse Offset X: {{ mouse.offsetX }}</p>
+                    <p class="text-red">Mouse Offset Y: {{ mouse.offsetY }}</p>
+                </div>
+            </div>
+        </div>
+        <canvas id="OmiCanvas"
+                width="600"
+                height="300"
+                (mousedown)="onCanvasMouseDown($event)"
+                (mouseup)="onCanvasMouseUp($event)"
+                (mousemove)="onCanvasMouseMove($event)"
+                #omiCanvas>
+        </canvas>
+
+        <div class="list-rect">
+            <p>List Rect Display</p>
+            <div class="rect-item" *ngFor="let rect of arrRects">
+                <div>X: {{ rect.x }} - Y: {{ rect.y }} - W: {{ rect.width }} - H: {{ rect.height }}</div>
+
+                <div (click)="onRemoveRect(rect)" class="pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="red" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
